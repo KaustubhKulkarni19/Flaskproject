@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>Responsive HTML5 Page Layout Template</title>
+    <meta name="description" content="Simple HTML5 Page layout template with header, footer, sidebar etc.">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/script.js"></script>
+</head>
+
+<body>
+	<header>
+		<div id="logo"><img src="../static/logo.png">ItVedant Education Pvt. Ltd.</div>
+		<nav>  
+			<ul>
+				<li><a href="{{url_for('index')}}">Home</a>
+				<li><a href="{{url_for('contact')}}">Contact</a>
+				<li><a href="{{url_for('about')}}">About</a>
+				<li><a href="{{url_for('allusers')}}">All Users</a>
+				<li><a href="{{url_for('search')}}">Search</a>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<strong>This is Search page</strong>
+	</section>
+	
+	<section>
+	<form method="POST" action="{{url_for('getdata')}}" >
+		<label for="id">User ID</label>
+		<input type="text" name="id" id="text"/> 
+		<br><br>
+		
+		<input type="submit" name="Search user" value="Search User"/>
+	
+	</form>	
+	</section>
+	
+	
+	<section id="pageContent">
+		<main role="main">
+		
+		<head>
+		<style>
+			table,th,td{
+			border:1px solid black;
+			}
+		</style>
+		</head>
+		
+		<table border="1" width="400">
+		<tr>
+			<th>User</th>					
+		</tr>	
+		
+		{% for item in row %}
+		<tr align="center">
+		
+			<td>{{item}}</td>
+			
+		</tr>
+		{% endfor %}			
+		</table>	
+			
+		</main>
+		
+	</section>
+	<footer>
+		
+	</footer>
+
+
+</body>
+
+</html>

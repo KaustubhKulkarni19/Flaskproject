@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>Responsive HTML5 Page Layout Template</title>
+    <meta name="description" content="Simple HTML5 Page layout template with header, footer, sidebar etc.">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/script.js"></script>
+</head>
+
+<body>
+	<header>
+		<div id="logo"><img src="../static/logo.png">Flask&nbsp;Application</div>
+		<nav>  
+			<ul>
+				<li><a href="{{url_for('index')}}">Home</a>
+				<li><a href="{{url_for('contact')}}">Contact</a>
+				<li><a href="{{url_for('about')}}">About</a>
+				<li><a href="{{url_for('allusers')}}">All Users</a>
+				<li><a href="{{url_for('search')}}">Search</a>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<strong>Contact</strong>
+	</section>
+	<section id="pageContent">
+		<main role="main">
+			
+			<article>
+				<h2>Contact</h2>
+				<p>Phone - 9205004404, Email - mail@itvedant.com,For HR Queries: 7304884883,For Placement Queries: 8369895579</p>
+			</article>
+			
+			
+		</main>
+		<aside>
+			<div id="img"><img src="../static/img1-2.jpg"></div>
+			<div id="img"><img src="../static/img2-2.jpg"></div>
+			<div id="img"><img src="../static/img3-2.jpg"></div>
+		</aside>
+	</section>
+	<footer>
+		
+	</footer>
+
+
+</body>
+
+</html>

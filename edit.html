@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>Responsive HTML5 Page Layout Template</title>
+    <meta name="description" content="Simple HTML5 Page layout template with header, footer, sidebar etc.">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/script.js"></script>
+</head>
+
+<body>
+	<header>
+		<div id="logo"><img src="../static/logo.png">Flask&nbsp;Application</div>
+		<nav>  
+			<ul>
+				<li><a href="{{url_for('index')}}">Home</a>
+				<li><a href="{{url_for('contact')}}">Contact</a>
+				<li><a href="{{url_for('about')}}">About</a>
+				<li><a href="{{url_for('allusers')}}">All Users</a>
+				<li><a href="{{url_for('search')}}">Search</a>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<strong>This is Edit page</strong>
+	</section>
+	
+	<section>
+	<form method="POST" action="{{url_for('update')}}" >
+	
+		<input type="hidden" name="uid" value="{{row[0]}}"/>
+	
+		<label for="uname">Username</label>
+		<input type="text" name="uname" id="uname" value="{{row[1]}}"/> 
+		<br><br>
+		<label for="pwd">Password</label>
+		<input type="password" name="pwd" id="pwd" value="{{row[2]}}"/>
+		<br><br>
+		<label for="contact">Contact</label>
+		<input type="number" name="contact" id="contact" value="{{row[3]}}"/>
+		<br><br>
+		<input type="submit" name="Update user" value="Update User"/>
+	
+	</form>	
+	</section>
+	
+	
+	<section id="pageContent">
+		<main role="main">
+		
+		<head>
+		<style>
+			table,th,td{
+			border:1px solid black;
+			}
+		</style>
+		</head>
+		
+		<table border="1" width="400">
+		<tr>
+			<th>Username</th>
+			<th>Password</th>
+			<th>Contact</th>
+			<th colspan="2">Action</th>			
+		</tr>	
+		
+		{% for row in userdata %}
+		<tr align="center">
+			<td>{{row[1]}}</td>
+			<td>{{row[2]}}</td>
+			<td>{{row[3]}}</td>
+			<td><a href="{{url_for('edit',id=row[0])}}">Edit</a></td>
+			<td><a href="{{url_for('delete',id=row[0])}}">Delete</a></td>
+		</tr>
+		{% endfor %}			
+		</table>	
+			
+		</main>
+		<aside>
+			<div>Sidebar 1</div>
+			<div>Sidebar 2</div>
+			<div>Sidebar 3</div>
+		</aside>
+	</section>
+	<footer>
+		<p>&copy; You can copy, edit and publish this template but please leave a link to our website | <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a></p>
+		<address>
+			Contact: <a href="mailto:me@example.com">Mail me</a>
+		</address>
+	</footer>
+
+
+</body>
+
+</html>

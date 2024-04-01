@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>Responsive HTML5 Page Layout Template</title>
+    <meta name="description" content="Simple HTML5 Page layout template with header, footer, sidebar etc.">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/script.js"></script>
+</head>
+
+<body>
+	<header>
+		<div id="logo"><img src="../static/logo.png">ItVedant Education Pvt. Ltd.</div>
+		<nav>  
+			<ul>
+				<li><a href="{{url_for('index')}}">Home</a>
+				<li><a href="{{url_for('contact')}}">Contact</a>
+				<li><a href="{{url_for('about')}}">About</a>
+				<li><a href="{{url_for('allusers')}}">All Users</a>
+				<li><a href="{{url_for('search')}}">Search</a>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<strong>User Database</strong>
+	</section>
+	
+	<section>
+	<form method="POST" action="{{url_for('create')}}" >
+		<label for="Username">Username</label>
+		<input type="text" name="Username" id="Username"/> 
+		<br><br>
+		<label for="Password">Password</label>
+		<input type="password" name="Password" id="Password"/>
+		<br><br>
+		<label for="Contact">Contact</label>
+		<input type="number" name="Contact" id="Contact"/>
+		<br><br>
+		<input type="submit" name="add user" value="Add User"/>
+	
+	</form>	
+	</section>
+	
+	
+	<section id="pageContent">
+		<main role="main">
+		
+		<head>
+		<style>
+			table,th,td{
+			border:1px solid black;
+			}
+		</style>
+		</head>
+		
+		<table border="1" width="400">
+		<tr>
+			<th>Username</th>
+			<th>Password</th>
+			<th>Contact</th>
+			<th colspan="2">Action</th>			
+		</tr>	
+		
+		{% for row in userdata %}
+		<tr align="center">
+			<td>{{row[1]}}</td>
+			<td>{{row[2]}}</td>
+			<td>{{row[3]}}</td>
+			<td><a href="{{url_for('edit',id=row[0])}}">Edit</a></td>
+			<td><a href="{{url_for('delete',id=row[0])}}">Delete</a></td>
+		</tr>
+		{% endfor %}			
+		</table>	
+			
+		</main>
+		<aside>
+			<div id="img"><img src="https://www.itvedant.com/images/mayuri.webp" alt="Mayuri Mathkar Itvedant Placed Student Review"></div>
+                        <div id="img"><img loading="lazy" src="https://www.itvedant.com/images/ankita-lad.webp" alt="Ankita Lad Itvedant Placed Student Review"></div>
+                        
+		</aside>
+	</section>
+	<footer>
+		
+	</footer>
+
+
+</body>
+
+</html>
